@@ -1,0 +1,26 @@
+<template>
+  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+    <v-app id="app">
+      <v-layout :class="{ 'is-mobile': mdAndDown }">
+        <slot />
+      </v-layout>
+    </v-app>
+  </Html>
+</template>
+
+<style lang="scss" scoped>
+.v-layout {
+  // otherwise position sticky will not work for child elements
+  // overflow: visible !important;
+}
+</style>
+
+<script setup>
+const { mdAndDown, mobile } = useDisplay();
+
+const head = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: 'id',
+  addSeoAttributes: true,
+});
+</script>

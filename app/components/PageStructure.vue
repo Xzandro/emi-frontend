@@ -1,0 +1,45 @@
+<template>
+  <v-main>
+    <slot></slot>
+    <section
+      v-for="(block, i) in blocks"
+      :key="`${block.id}-${block.__component}`"
+      :class="block.__component.replace('.', '-')"
+      :data-section="`${block.__component}-${block.id}`"
+    >
+      <component v-if="block.__component !== 'blocks.headline'" :is="components[block.__component]" :block="block" :casino="casino" :page="page">
+        <Headline v-if="blocks[i - 1] && blocks[i - 1].__component === 'blocks.headline'" :block="blocks[i - 1]" />
+      </component>
+    </section>
+    <slot name="bottom"></slot>
+  </v-main>
+</template>
+
+<script setup>
+const props = defineProps({
+  pageStructure: {
+    type: Object,
+    default() {
+      return {
+        attributes: {},
+      };
+    },
+  },
+  blocks: {
+    type: Array,
+    default() {
+      return [];
+    },
+  },
+  casino: null,
+  page: String,
+  forceShowFooter: Boolean,
+  absoluteFooter: Boolean,
+});
+
+const showFooter = computed(() => props.pageStructure?.showFooter === null || props.pageStructure?.showFooter === true || props.forceShowFooter);
+
+const components = {
+  'blocks.header': resolveComponent('LazyHeader'),
+};
+</script>

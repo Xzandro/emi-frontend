@@ -1,0 +1,24 @@
+$body-font-family: 'Barlow', 'serif';
+$heading-font-family: 'Nothing You Could Do', 'serif';
+$spacer: 4px;
+
+@forward 'vuetify/settings' with ($body-font-family: $body-font-family,
+  $heading-font-family: $heading-font-family,
+  $spacers-steps: 25,
+  $container-padding-x: $spacer * 3,
+  $typography: ('h1': ('size': 3.75rem,
+      'line-height': 54px,
+      'weight': 400),
+    'h2': ('size': 2.25rem,
+      'line-height': 46px,
+      'weight': 400),
+    'h3': ('size': 1.5rem,
+      'line-height': 40px,
+      'weight': 400),
+    'h4': ('size': 1.333rem,
+      'line-height': 32px,
+      'weight': 400),
+    'h6': ('size': 1rem,
+      'line-height': 24px,
+      'weight': 400),
+  ));

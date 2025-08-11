@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <v-img></v-img>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  <NuxtLoadingIndicator />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
-
-<style lang="scss">
-body {
-  background-color: rgb(2 4 32);
-}
-</style>

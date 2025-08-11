@@ -1,7 +1,32 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
+
+  googleFonts: {
+    families: {
+      Barlow: [400, 500, 700],
+      'Nothing You Could Do': [400],
+    },
+  },
+
+  i18n: {
+    lazy: true,
+    defaultLocale: 'de',
+    baseUrl: process.env.BASE_URL,
+    vueI18n: './nuxt-i18n.js',
+    strategy: 'prefix_except_default',
+    compilation: {
+      strictMessage: false,
+    },
+    detectBrowserLanguage: {
+      fallbackLocale: 'de',
+      alwaysRedirect: true,
+      useCookie: true,
+      cookieKey: 'lang',
+    },
+  },
+
   vuetify: {
     moduleOptions: {
       styles: {
@@ -11,17 +36,6 @@ export default defineNuxtConfig({
         viewportSize: true,
       },
     },
-
-    vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern',
-          additionalData: '@use "@/assets/globalvars.scss" as *;',
-        },
-      },
-    },
-  },
 
     vuetifyOptions: {
       display: {
@@ -38,4 +52,8 @@ export default defineNuxtConfig({
       },
     },
   },
-})
+
+  css: ['@/assets/main.scss'],
+
+  modules: ['vuetify-nuxt-module', '@nuxtjs/google-fonts', '@nuxtjs/strapi', '@nuxtjs/i18n'],
+});

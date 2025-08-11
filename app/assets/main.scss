@@ -1,5 +1,78 @@
-body {
+$body-font-family: 'Barlow', 'serif';
+$heading-font-family: 'Nothing You Could Do', 'serif';
 
-  background: rgb(255 255 255/var(--un-text-opacity));
+$grid-size: 1264px;
+$padding-mini: 20px;
+$padding-small: 40px;
+$padding-wide: 80px;
 
+$colors-font: #313131;
+
+$spacer: 4px;
+
+
+.v-container.constrained {
+  max-width: $grid-size;
+}
+
+.v-theme--light.v-application {
+  color: $colors-font
+}
+
+.padding-none {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.padding-mini {
+  padding-top: $padding-mini !important;
+  padding-bottom: $padding-mini !important;
+}
+
+.padding-small {
+  padding-top: $padding-small !important;
+  padding-bottom: $padding-small !important;
+}
+
+.padding-wide {
+  padding-top: $padding-wide !important;
+  padding-bottom: $padding-wide !important;
+}
+
+.padding-top-none {
+  padding-top: 0 !important;
+}
+
+.padding-top-mini {
+  padding-top: $padding-mini !important;
+}
+
+.padding-top-small {
+  padding-top: $padding-small !important;
+}
+
+.padding-top-wide {
+  padding-top: $padding-wide !important;
+}
+
+.padding-bottom-none {
+  padding-bottom: 0 !important;
+}
+
+.padding-bottom-mini {
+  padding-bottom: $padding-mini !important;
+}
+
+.padding-bottom-small {
+  padding-bottom: $padding-small !important;
+}
+
+.padding-bottom-wide {
+  padding-bottom: $padding-wide !important;
+}
+
+.text-h1:after {
+  content: '';
+  display: block;
+  width: 100%;
 }
