@@ -206,11 +206,14 @@ const toggleDrawer = () => {
 };
 
 const onScroll = () => {
-  console.log(document.documentElement.scrollTop);
   if (document.documentElement.scrollTop > threshold) {
     scrolled.value = true;
   } else {
     scrolled.value = false;
   }
 };
+
+onMounted(() => {
+  onScroll();
+});
 </script>
