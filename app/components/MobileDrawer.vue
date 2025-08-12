@@ -41,7 +41,7 @@
 @use '@/assets/globals.scss' as *;
 
 :deep(.v-list-group .v-list-group__items) {
-  background: $colors-secondary;
+  background: $colors-stroke;
 }
 </style>
 
