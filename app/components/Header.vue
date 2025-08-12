@@ -34,7 +34,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  clip-path: polygon(100% 50%, 0% 100%, 100% 100%);
+  clip-path: polygon(100% 45%, 0% 100%, 100% 100%);
   width: 100%;
   height: 100%;
   background-color: #ffffff;

@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Barlow: [400, 500, 700],
+      Barlow: [400, 500, 600, 700],
       'Barlow Semi Condensed': [400, 700],
       'Nothing You Could Do': [400],
     },

@@ -40,6 +40,7 @@ const props = defineProps({
 const showFooter = computed(() => props.pageStructure?.showFooter === null || props.pageStructure?.showFooter === true || props.forceShowFooter);
 
 const components = {
+  'blocks.cards': resolveComponent('LazyCards'),
   'blocks.header': resolveComponent('LazyHeader'),
 };
 </script>

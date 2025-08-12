@@ -9,22 +9,33 @@
       <template v-if="$slots.default">
         <slot></slot>
       </template>
-      <div v-else-if="description" v-html="description"></div>
+      <div v-else-if="$attrs.content" v-html="$attrs.content"></div>
+    </v-card-text>
+    <v-card-text v-if="$attrs.button" class="px-6 pt-0 pb-6">
+      <Button v-if="$attrs.button" v-bind="$attrs.button" block />
     </v-card-text>
   </v-card>
 </template>
 
 <style lang="scss" scoped>
 .v-card {
-  height: 150%;
+  height: 100%;
   border-radius: 28px;
-  border: 1px solid #fff;
-
+  border: 1px solid #c4d4c8;
+  width: 100%;
   z-index: 1;
+
+  :deep(p) {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   &.blurred {
     background: radial-gradient(64.24% 100.27% at 25.6% -7.27%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%), rgba(252, 253, 247, 0.51);
     box-shadow: 0 11px 15px 0 rgba(0, 59, 28, 0.1) !important;
     backdrop-filter: blur(12px);
+    border: 1px solid #fff;
   }
 }
 </style>
