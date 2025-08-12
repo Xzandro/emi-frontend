@@ -1,7 +1,7 @@
 <template>
   <v-btn
     v-bind="$attrs"
-    :height="circle ? undefined : 58"
+    :height="circle ? undefined : 56"
     :rounded="rounded"
     :icon="circle"
     variant="flat"
@@ -23,7 +23,11 @@
   color: $colors-primary;
   border-radius: $menu-content-border-radius;
   font-weight: 600;
+  font-size: 1rem;
   text-transform: none;
+  :deep(.v-icon) {
+    margin-top: 4px;
+  }
 }
 </style>
 

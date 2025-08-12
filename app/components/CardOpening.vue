@@ -7,13 +7,8 @@
 
         <div class="mb-1 d-flex" v-for="(time, index) in day.times" :key="time.id">
           <span v-if="index !== 0" class="mx-2">|</span>
-
-          <template>
-            <span v-if="time.startTime">{{ toLocaleTime(new Date(`2025-08-12T${time.startTime}`)) }}</span>
-          </template>
-          <template>
-            <span v-if="time.endTime"> - {{ toLocaleTime(new Date(`2025-08-12T${time.endTime}`)) }}</span>
-          </template>
+          <span v-if="time.startTime">{{ toLocaleTime(new Date(`2025-08-12T${time.startTime}`)) }}</span>
+          <span v-if="time.endTime"> - {{ toLocaleTime(new Date(`2025-08-12T${time.endTime}`)) }}</span>
         </div>
       </div>
     </div>
@@ -23,5 +18,6 @@
 span {
   font-weight: 500;
   white-space: nowrap;
+  font-size: 1rem;
 }
 </style>

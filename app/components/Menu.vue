@@ -2,7 +2,7 @@
   <div>
     <v-app-bar
       v-scroll="onScroll"
-      :height="isMobile || scrolled ? 95 : 160"
+      :height="isMobile || scrolled ? 110 : 160"
       :class="{ 'is-mobile': isMobile, scrolled }"
       flat
       :order="1"
@@ -17,18 +17,14 @@
                 <v-img
                   class="main-logo"
                   :class="{ 'is-mobile': isMobile }"
-                  :width="isMobile || scrolled ? 50 : 120"
+                  :width="isMobile || scrolled ? 220 : 400"
                   contain
-                  :src="isMobile ? '/logo.svg' : '/logo.svg'"
+                  src="/logo.svg"
                   alt="Main logo"
                 />
               </NuxtLink>
-              <div v-if="!mobile && !scrolled" class="d-flex flex-column ml-7">
-                <p class="subtitle">Hausärztliche Praxis</p>
-                <p class="title">Dr. med. Emily Günther</p>
-              </div>
               <v-spacer />
-              <v-app-bar-nav-icon v-if="isMobile" @click.stop="toggleDrawer" />
+              <v-app-bar-nav-icon :color="colors.primary" v-if="isMobile" @click.stop="toggleDrawer" />
               <div id="main-menu" class="d-none d-lg-flex align-center">
                 <div v-for="menuItem in items" :key="menuItem.documentId">
                   <NuxtLink
@@ -110,14 +106,17 @@
   font-family: $body-font-family-condensed;
   color: #000000;
   line-height: 30.725px;
+  font-size: 0.5rem;
 }
 .title {
   font-size: 1.813rem;
   font-weight: 700;
+  font-size: 0.5rem;
 }
 .subtitle {
   font-size: 1.563rem;
   font-weight: 400;
+  font-size: 1.5rem;
 }
 #main-menu a,
 #main-menu span {
