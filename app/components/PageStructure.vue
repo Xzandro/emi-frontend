@@ -41,6 +41,7 @@ const showFooter = computed(() => props.pageStructure?.showFooter === null || pr
 
 const components = {
   'blocks.cards': resolveComponent('LazyCards'),
+  'blocks.content-slider': resolveComponent('LazyContentSlider'),
   'blocks.header': resolveComponent('LazyHeader'),
 };
 </script>

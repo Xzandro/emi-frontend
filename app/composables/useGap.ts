@@ -12,8 +12,14 @@ export default function (block) {
       return;
     }
 
-    if (!value || value === 'wide') classes.push(`padding-${paddingType}-wide`);
-    if (value === 'small') {
+    if (!value) {
+      classes.push(`padding-${paddingType}-small`);
+      return;
+    }
+
+    if (value === 'wide') {
+      classes.push(`padding-${paddingType}-wide`);
+    } else if (value === 'small') {
       classes.push(`padding-${paddingType}-small`);
     } else if (value === 'mini') {
       classes.push(`padding-${paddingType}-mini`);

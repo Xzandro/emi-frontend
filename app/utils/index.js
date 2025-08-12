@@ -1,9 +1,15 @@
+import { useRuntimeConfig } from '#imports';
+
 export const filterObject = (obj, predicate) => Object.fromEntries(Object.entries(obj).filter(predicate));
 export const columnSize = (columns, index) => {
   if (columns[index]?.size) return columns[index].size;
   return columns.length > 0 ? 12 / columns.length : 12;
 };
-export const getImageURL = (image) => image?.url;
+export const getImageURL = (image) => {
+  const config = useRuntimeConfig();
+  console.log(config);
+  return image?.url ? `${config.public.strapi.url}${image.url}` : null;
+};
 export const toLocaleCurrency = (amount, options = {}) =>
   amount.toLocaleString(undefined, {
     ...options,

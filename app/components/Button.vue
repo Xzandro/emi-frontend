@@ -25,8 +25,10 @@
   font-weight: 600;
   font-size: 1rem;
   text-transform: none;
+  max-width: fit-content;
+  padding: 0 28px;
   :deep(.v-icon) {
-    margin-top: 4px;
+    margin-top: 6px;
   }
 }
 </style>

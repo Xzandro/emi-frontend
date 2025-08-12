@@ -61,6 +61,12 @@
   padding-bottom: $padding-wide !important;
 }
 
+.background-primary {
+  background-color: $colors-background;
+  border-top: 1px solid $colors-stroke;
+  border-bottom: 1px solid $colors-stroke;
+}
+
 .text-h1:after {
   content: '';
   display: block;
@@ -83,4 +89,9 @@ section>.v-container.padding-wide,
 section .container-wrap>.v-container.padding-wide {
   padding-top: $padding-wide !important;
   padding-bottom: $padding-wide !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

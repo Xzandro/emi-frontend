@@ -27,6 +27,17 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    strapi: {
+      url: process.env.STRAPI_URL || 'http://localhost:1337',
+    },
+    public: {
+      strapi: {
+        url: process.env.STRAPI_URL || 'http://localhost:1337',
+      },
+    },
+  },
+
   i18n: {
     defaultLocale: 'de',
     baseUrl: process.env.BASE_URL,
@@ -71,5 +82,5 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['vuetify-nuxt-module', '@nuxtjs/google-fonts', '@nuxtjs/strapi', '@nuxtjs/i18n', '@pinia/nuxt'],
+  modules: ['vuetify-nuxt-module', '@nuxtjs/google-fonts', '@nuxtjs/strapi', '@nuxtjs/i18n', '@pinia/nuxt', 'vue3-carousel-nuxt'],
 });
