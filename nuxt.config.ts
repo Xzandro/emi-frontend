@@ -3,6 +3,22 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
+  app: {
+    head: {
+      titleTemplate: '%s | unsere-hausarztpraxis.de',
+      title: 'emi-frontend',
+      htmlAttrs: {
+        lang: 'de',
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: '' },
+        { name: 'format-detection', content: 'telephone=no' },
+      ],
+    },
+  },
+
   googleFonts: {
     families: {
       Barlow: [400, 500, 700],
@@ -11,7 +27,6 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    lazy: true,
     defaultLocale: 'de',
     baseUrl: process.env.BASE_URL,
     vueI18n: './nuxt-i18n.js',

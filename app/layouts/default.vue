@@ -18,9 +18,5 @@
 <script setup>
 const { mdAndDown, mobile } = useDisplay();
 
-const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true,
-});
+const head = useLocaleHead();
 </script>
