@@ -19,7 +19,7 @@
                   :class="{ 'is-mobile': isMobile }"
                   :width="isMobile || scrolled ? 220 : 400"
                   contain
-                  src="/logo.svg"
+                  src="/logo-full.svg"
                   alt="Main logo"
                 />
               </NuxtLink>
