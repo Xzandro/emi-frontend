@@ -1,6 +1,8 @@
 <template>
   <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
     <v-app id="app">
+      <MobileDrawer />
+
       <v-layout :class="{ 'is-mobile': mdAndDown }">
         <Menu />
         <slot />

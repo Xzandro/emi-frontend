@@ -6,8 +6,8 @@
       :class="{ 'is-mobile': isMobile, scrolled }"
       flat
       :order="1"
-      :scroll-behavior="isMobile ? 'hide elevate' : null"
-      :scroll-threshold="threshold"
+      :scroll-behavior="isMobile ? 'elevate hide' : null"
+      :scroll-threshold="300"
     >
       <div class="container-wrap">
         <v-container class="constrained">

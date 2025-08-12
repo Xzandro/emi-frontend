@@ -5,7 +5,7 @@
     </div>
 
     <v-card-text class="pa-7">
-      <h4 v-if="header" class="text-h4 mb-5" v-text="header"></h4>
+      <h3 v-if="header" class="text-h3 mb-5" v-text="header"></h3>
       <div v-if="description" v-html="description"></div>
     </v-card-text>
   </v-card>
