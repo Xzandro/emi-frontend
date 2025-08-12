@@ -7,7 +7,6 @@ export const columnSize = (columns, index) => {
 };
 export const getImageURL = (image) => {
   const config = useRuntimeConfig();
-  console.log(config);
   return image?.url ? `${config.public.strapi.url}${image.url}` : null;
 };
 export const toLocaleCurrency = (amount, options = {}) =>
