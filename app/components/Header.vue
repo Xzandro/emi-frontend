@@ -10,7 +10,7 @@
           <div v-if="block.content" v-html="block.content" class="mt-8"></div>
         </v-col>
         <v-col class="pl-md-25">
-          <Card blurred />
+          <Card v-if="block.card" v-bind="block.card" />
         </v-col>
       </v-row>
     </v-container>
@@ -51,7 +51,7 @@ const props = defineProps({
     type: Object,
     default() {
       return {
-        image: { data: {} },
+        card: null,
       };
     },
   },

@@ -10,6 +10,7 @@ export const toLocaleCurrency = (amount, options = {}) =>
     style: 'currency',
     currency: 'USD',
   });
+export const toLocaleTime = (date, options = {}) => date.toLocaleTimeString(undefined, { timeStyle: 'short', ...options });
 export const toLocaleDate = (date, options = {}) => date.toLocaleDateString(undefined, { dateStyle: 'medium', ...options });
 export const toLocaleDateTime = (date, options = {}) => date.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short', ...options });
 export const timeRemaining = (futureTime) => {

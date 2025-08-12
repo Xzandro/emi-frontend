@@ -1,14 +1,8 @@
 <template>
-  <v-card v-bind="$attrs" elevation="0" class="d-flex flex-column mb-4" :class="{ blurred }">
-    <div class="card-head" :class="{ 'no-image': !getImageURL(image) }">
-      <v-img v-if="getImageURL(image)" :src="getImageURL(image)" cover height="100%" />
-    </div>
-
-    <v-card-text class="pa-7">
-      <h3 v-if="header" class="text-h3 mb-5" v-text="header"></h3>
-      <div v-if="description" v-html="description"></div>
-    </v-card-text>
-  </v-card>
+  <template v-if="$attrs.opening">
+    <CardOpening v-bind="$attrs" />
+  </template>
+  <CardBase v-else v-bind="$attrs" />
 </template>
 
 <style lang="scss" scoped>
@@ -25,15 +19,3 @@
   }
 }
 </style>
-
-<script setup>
-const props = defineProps({
-  image: null,
-  header: null,
-  description: null,
-  blurred: {
-    type: Boolean,
-    default: false,
-  },
-});
-</script>
