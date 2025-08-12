@@ -1,14 +1,4 @@
-$body-font-family: 'Barlow', 'serif';
-$heading-font-family: 'Nothing You Could Do', 'serif';
-
-$grid-size: 1264px;
-$padding-mini: 20px;
-$padding-small: 40px;
-$padding-wide: 80px;
-
-$colors-font: #313131;
-
-$spacer: 4px;
+@use '@/assets/globals.scss' as *;
 
 
 .v-container.constrained {
@@ -75,4 +65,10 @@ $spacer: 4px;
   content: '';
   display: block;
   width: 100%;
+}
+
+.v-menu>.v-overlay__content {
+  border-radius: $menu-content-border-radius !important;
+  border: 1px solid #A6BFAD;
+  box-shadow: 0 28px 47px 0 rgba(0, 59, 28, 0.10);
 }

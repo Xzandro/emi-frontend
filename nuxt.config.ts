@@ -22,6 +22,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Barlow: [400, 500, 700],
+      'Barlow Semi Condensed': [400, 700],
       'Nothing You Could Do': [400],
     },
   },
@@ -41,6 +42,8 @@ export default defineNuxtConfig({
       cookieKey: 'lang',
     },
   },
+
+  css: ['@/assets/main.scss'],
 
   vuetify: {
     moduleOptions: {
@@ -68,7 +71,5 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@/assets/main.scss'],
-
-  modules: ['vuetify-nuxt-module', '@nuxtjs/google-fonts', '@nuxtjs/strapi', '@nuxtjs/i18n'],
+  modules: ['vuetify-nuxt-module', '@nuxtjs/google-fonts', '@nuxtjs/strapi', '@nuxtjs/i18n', '@pinia/nuxt'],
 });

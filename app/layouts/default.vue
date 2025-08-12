@@ -2,6 +2,7 @@
   <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
     <v-app id="app">
       <v-layout :class="{ 'is-mobile': mdAndDown }">
+        <Menu />
         <slot />
       </v-layout>
     </v-app>

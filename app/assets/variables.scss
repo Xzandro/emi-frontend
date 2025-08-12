@@ -1,6 +1,4 @@
-$body-font-family: 'Barlow', 'serif';
-$heading-font-family: 'Nothing You Could Do', 'serif';
-$spacer: 4px;
+@use '@/assets/globals.scss' as *;
 
 @forward 'vuetify/settings' with ($body-font-family: $body-font-family,
   $heading-font-family: $heading-font-family,
