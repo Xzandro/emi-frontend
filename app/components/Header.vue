@@ -6,7 +6,7 @@
           <h1 class="text-h1">
             {{ block.header }}
           </h1>
-          <Circles class="mt-10" />
+          <Circles class="mt-8" />
           <div v-if="block.content" v-html="block.content" class="mt-8"></div>
         </v-col>
         <v-col class="pl-md-25">
