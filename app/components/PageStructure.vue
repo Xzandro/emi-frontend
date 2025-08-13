@@ -7,12 +7,11 @@
       :class="block.__component.replace('.', '-')"
       :data-section="`${block.__component}-${block.id}`"
     >
-      <component v-if="block.__component !== 'blocks.headline'" :is="components[block.__component]" :block="block" :casino="casino" :page="page">
-        <Headline v-if="blocks[i - 1] && blocks[i - 1].__component === 'blocks.headline'" :block="blocks[i - 1]" />
-      </component>
+      <component :is="components[block.__component]" :block="block" :casino="casino" :page="page"> </component>
     </section>
     <slot name="bottom"></slot>
   </v-main>
+  <Footer v-if="showFooter" app :absolute="absoluteFooter" />
 </template>
 
 <script setup>
@@ -41,7 +40,7 @@ const showFooter = computed(() => props.pageStructure?.showFooter === null || pr
 
 const components = {
   'blocks.cards': resolveComponent('LazyCards'),
-  'blocks.content-slider': resolveComponent('LazyContentSlider'),
+  'blocks.content-slider': resolveComponent('ContentSlider'),
   'blocks.header': resolveComponent('LazyHeader'),
 };
 </script>
