@@ -45,7 +45,7 @@ span {
 }
 .opening-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 10px 1fr;
+  grid-template-columns: 2fr 1fr auto 1fr;
   gap: 4px;
   align-items: center;
   font-size: 1rem;
