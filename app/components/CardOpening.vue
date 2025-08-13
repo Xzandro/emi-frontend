@@ -1,25 +1,63 @@
 <template>
   <CardBase v-bind="$attrs" blurred>
-    <div class="d-flex flex-column">
-      <div class="d-flex" v-for="day in $attrs.opening.days" :key="day.id">
-        <span>{{ day.day }}:</span>
-        <v-spacer />
-
-        <div class="mb-1 d-flex" v-for="(time, index) in day.times" :key="time.id">
-          <span v-if="index !== 0" class="mx-4">|</span>
-
-          <span v-if="time.startTime">{{ toLocaleTime(new Date(`2025-08-12T${time.startTime}`)) }}</span>
-          <span class="mx-2"> - </span>
-          <span v-if="time.endTime">{{ toLocaleTime(new Date(`2025-08-12T${time.endTime}`)) }}</span>
+    <div class="opening-grid">
+      <template v-for="day in $attrs.opening.days" :key="day.id">
+        <div class="grid-item">{{ day.day }}:</div>
+        <!-- Morning slot -->
+        <div class="grid-item center">
+          <template v-if="day.times[0] && !isAfternoon(day.times[0].startTime)">
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
+            <span class="mx-1"> - </span>
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
+          </template>
         </div>
-      </div>
+        <!-- Vertical separator (only show if there's an afternoon slot) -->
+        <div
+          class="grid-item center"
+          v-if="(day.times.length > 1 && day.times[1]) || (day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime))"
+        >
+          |
+        </div>
+        <div class="grid-item" v-else></div>
+        <!-- Afternoon slot -->
+        <div class="grid-item center">
+          <template v-if="day.times.length > 1 && day.times[1]">
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].startTime}`)) }}
+            <span class="mx-1"> - </span>
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].endTime}`)) }}
+          </template>
+          <template v-else-if="day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime)">
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
+            <span class="mx-1"> - </span>
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
+          </template>
+        </div>
+      </template>
     </div>
   </CardBase>
 </template>
+
 <style lang="scss" scoped>
 span {
   font-weight: 500;
   white-space: nowrap;
   font-size: 1rem;
 }
+.opening-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 10px 1fr;
+  gap: 4px;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.grid-item.center {
+  justify-self: center;
+}
 </style>
+
+<script setup>
+const isAfternoon = (time) => {
+  return new Date(`2025-08-12T${time}`).getHours() >= 12;
+};
+</script>
