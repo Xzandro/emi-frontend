@@ -61,6 +61,9 @@ img {
   --vc-nav-height: 44px;
   --vc-nav-width: 60px;
 }
+:deep(.carousel__track) {
+  padding-left: 0;
+}
 :deep(.carousel__prev) {
   position: absolute;
   right: 72px;
