@@ -1,5 +1,10 @@
 <template>
-  <v-card v-bind="$attrs" elevation="0" class="d-flex flex-column mb-4" :class="{ blurred }">
+  <v-card
+    v-bind="$attrs"
+    elevation="0"
+    class="d-flex flex-column mb-4"
+    :class="[blurred ? 'blurred' : null, background ? `background-${background}` : null]"
+  >
     <div class="card-head" :class="{ 'no-image': !getImageURL(image) }">
       <v-img v-if="getImageURL(image)" :src="getImageURL(image)" cover height="300" />
     </div>
@@ -53,6 +58,7 @@ const props = defineProps({
   header: null,
   subheader: null,
   description: null,
+  background: null,
   blurred: {
     type: Boolean,
     default: false,

@@ -71,6 +71,16 @@
   border-bottom: 1px solid $colors-stroke;
 }
 
+.background-warning {
+  background-color: rgba($colors-warning, 0.1) !important;
+  border: 1px solid $colors-warning !important;
+}
+
+.background-error {
+  background-color: rgba($colors-error, 0.1) !important;
+  border: 1px solid $colors-error !important;
+}
+
 .text-h1:after {
   content: '';
   display: block;
