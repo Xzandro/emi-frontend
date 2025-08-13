@@ -7,7 +7,7 @@
         <div class="grid-item center">
           <template v-if="day.times[0] && !isAfternoon(day.times[0].startTime)">
             {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
-            <span class="mx-1"> - </span>
+            <span> - </span>
             {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
           </template>
         </div>
@@ -23,12 +23,12 @@
         <div class="grid-item center">
           <template v-if="day.times.length > 1 && day.times[1]">
             {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].startTime}`)) }}
-            <span class="mx-1"> - </span>
+            <span> - </span>
             {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].endTime}`)) }}
           </template>
           <template v-else-if="day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime)">
             {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
-            <span class="mx-1"> - </span>
+            <span> - </span>
             {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
           </template>
         </div>
