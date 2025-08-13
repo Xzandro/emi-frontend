@@ -24,30 +24,5 @@ const props = defineProps({
   },
 });
 
-const expand = ref(false);
-
-const getColumnPadding = (columns, index) => {
-  if (!columns) return null;
-  if (columns.length < 2) return null;
-
-  const isLast = columns.length === index + 1;
-
-  return isLast ? 'pr-md-6' : 'pr-md-6';
-};
-
-const rowCenter = (rows, rowIndex) => {
-  if (props.block.resizeSingleColumns === false || !rows?.[rowIndex]) return null;
-  const columns = rows[rowIndex].columns;
-
-  return columns.length < 2 ? 'justify-center' : null;
-};
-
-const columnRestricted = (rows, rowIndex) => {
-  if (props.block.resizeSingleColumns === false || !rows?.[rowIndex]) return null;
-  const columns = rows[rowIndex].columns;
-
-  return columns.length < 2 ? 'restricted' : null;
-};
-
 const gap = useGap(props.block);
 </script>

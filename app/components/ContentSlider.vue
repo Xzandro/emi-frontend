@@ -7,7 +7,7 @@
             <v-container class="constrained">
               <v-row>
                 <v-col cols="12" md="6" class="pa-10 d-flex flex-column justify-center">
-                  <Headline :block="{ text: item.headline }" />
+                  <Headline :block="{ text: item.headline }" classes="mb-0" />
                   <div v-if="item.content" v-html="item.content" class="mt-8"></div>
                   <Button v-for="button in item.buttons" :key="button.id" v-bind="button" class="mt-8 mr-2" />
                 </v-col>

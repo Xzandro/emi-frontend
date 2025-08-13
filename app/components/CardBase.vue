@@ -5,11 +5,14 @@
     </div>
 
     <v-card-text class="pa-7">
-      <h3 v-if="header" class="text-h3 mb-4" v-text="header"></h3>
+      <h3 v-if="header" class="text-h3" v-text="header"></h3>
+      <div v-if="subheader">
+        {{ subheader }}
+      </div>
       <template v-if="$slots.default">
         <slot></slot>
       </template>
-      <div v-else-if="$attrs.content" v-html="$attrs.content"></div>
+      <div v-else-if="$attrs.content" v-html="$attrs.content" class="mt-4"></div>
     </v-card-text>
     <v-card-text v-if="$attrs.button" class="px-6 pt-0 pb-6">
       <Button v-if="$attrs.button" v-bind="$attrs.button" block />
@@ -37,6 +40,10 @@
     backdrop-filter: blur(12px);
     border: 1px solid #fff;
   }
+
+  .v-card-text {
+    font-size: 1rem;
+  }
 }
 </style>
 
@@ -44,6 +51,7 @@
 const props = defineProps({
   image: null,
   header: null,
+  subheader: null,
   description: null,
   blurred: {
     type: Boolean,

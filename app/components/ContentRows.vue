@@ -9,12 +9,12 @@
         class="content-column"
         :class="[getColumnPadding(row.columns, index), columnRestricted(rows, rowIndex, index)]"
       >
-        <template v-if="rowIndex === 0 && index === 0 && headline">
-          <Headline :block="{ text: headline }" />
+        <template v-if="rowIndex === headlineInjectArea.row && index === headlineInjectArea.column && headline">
+          <Headline class="mb-7" :block="{ text: headline }" />
         </template>
         <v-img class="mb-8 content-image" v-if="getImageURL(column.image)" :src="getImageURL(column.image)" />
         <div class="mb-8" v-if="column.card">
-          <CardBase :card="column.card" />
+          <CardBase v-bind="column.card" />
         </div>
         <h3 v-if="column.header" class="text-h3 column-content-header mb-5">
           {{ column.header }}
@@ -53,6 +53,21 @@ const props = defineProps({
       return [];
     },
   },
+});
+
+const headlineInjectArea = computed(() => {
+  let row = 0;
+  let column = 0;
+  props.rows.forEach((rowData, rowIndex) => {
+    rowData.columns.forEach((columnData, columnIndex) => {
+      if (columnData.injectHeadline) {
+        row = rowIndex;
+        column = columnIndex;
+      }
+    });
+  });
+
+  return { row, column };
 });
 
 const getColumnPadding = (columns, index) => {
