@@ -1,7 +1,7 @@
 <template>
   <v-card v-bind="$attrs" elevation="0" class="d-flex flex-column mb-4" :class="{ blurred }">
     <div class="card-head" :class="{ 'no-image': !getImageURL(image) }">
-      <v-img v-if="getImageURL(image)" :src="getImageURL(image)" cover height="100%" />
+      <v-img v-if="getImageURL(image)" :src="getImageURL(image)" cover height="300" />
     </div>
 
     <v-card-text class="pa-7">
