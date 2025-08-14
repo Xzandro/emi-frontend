@@ -71,8 +71,8 @@
                   </div>
                 </div>
                 <span class="phone">
-                  <v-icon>mdi-phone</v-icon>
-                  gvdfgfd
+                  <v-icon class="mr-2">mdi-phone-in-talk</v-icon>
+                  Bald erreichbar
                 </span>
               </div>
             </v-col>
