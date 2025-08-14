@@ -7,7 +7,7 @@
         v-for="(column, index) in row.columns"
         :key="column.id"
         class="content-column"
-        :class="[getColumnPadding(row.columns, index), columnRestricted(rows, rowIndex, index)]"
+        :class="[columnRestricted(rows, rowIndex, index)]"
       >
         <template v-if="rowIndex === headlineInjectArea.row && index === headlineInjectArea.column && headline">
           <Headline class="mb-7" :block="{ text: headline }" />
