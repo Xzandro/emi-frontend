@@ -10,7 +10,7 @@
         :class="[columnRestricted(rows, rowIndex, index)]"
       >
         <template v-if="rowIndex === headlineInjectArea.row && index === headlineInjectArea.column && headline">
-          <Headline class="mb-7" :block="{ text: headline }" />
+          <Headline :block="{ text: headline }" />
         </template>
         <v-img class="mb-8 content-image" v-if="getImageURL(column.image)" :src="getImageURL(column.image)" />
         <div class="mb-8" v-if="column.card">
