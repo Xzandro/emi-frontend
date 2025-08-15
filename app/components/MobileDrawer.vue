@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" width="300" v-if="isMobile" temporary app position="fixed" :color="colors.primary" :scrim="colors.primary">
+  <v-navigation-drawer v-model="drawer" width="300" v-if="isMobile" temporary app position="fixed" color="#ffffff" :scrim="colors.primary">
     <v-spacer />
     <v-list>
       <template v-for="menuItem in items">
@@ -41,7 +41,10 @@
 @use '@/assets/globals.scss' as *;
 
 :deep(.v-list-group .v-list-group__items) {
-  background: $colors-stroke;
+  background: $colors-background;
+}
+:deep(.v-list-item--active) {
+  color: $colors-primary;
 }
 </style>
 
