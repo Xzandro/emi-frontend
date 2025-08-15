@@ -1,40 +1,42 @@
 <template>
-  <p v-if="showOpeningHoursTitle">
-    <strong>{{ openingHour.name }}</strong>
-  </p>
-  <div class="opening-grid" :class="{ prominent }">
-    <template v-for="day in openingHour.days" :key="day.id">
-      <div class="grid-item">{{ day.day }}:</div>
-      <!-- Morning slot -->
-      <div class="grid-item center">
-        <template v-if="day.times[0] && !isAfternoon(day.times[0].startTime)">
-          {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
-          <span> - </span>
-          {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
-        </template>
-      </div>
-      <!-- Vertical separator (only show if there's an afternoon slot) -->
-      <div
-        class="grid-item center"
-        v-if="(day.times.length > 1 && day.times[1]) || (day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime))"
-      >
-        |
-      </div>
-      <div class="grid-item" v-else></div>
-      <!-- Afternoon slot -->
-      <div class="grid-item center">
-        <template v-if="day.times.length > 1 && day.times[1]">
-          {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].startTime}`)) }}
-          <span> - </span>
-          {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].endTime}`)) }}
-        </template>
-        <template v-else-if="day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime)">
-          {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
-          <span> - </span>
-          {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
-        </template>
-      </div>
-    </template>
+  <div>
+    <p v-if="showOpeningHoursTitle">
+      <strong>{{ openingHour.name }}</strong>
+    </p>
+    <div class="opening-grid" :class="{ prominent }">
+      <template v-for="day in openingHour.days" :key="day.id">
+        <div class="grid-item">{{ day.day }}:</div>
+        <!-- Morning slot -->
+        <div class="grid-item center">
+          <template v-if="day.times[0] && !isAfternoon(day.times[0].startTime)">
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
+            <span> - </span>
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
+          </template>
+        </div>
+        <!-- Vertical separator (only show if there's an afternoon slot) -->
+        <div
+          class="grid-item center"
+          v-if="(day.times.length > 1 && day.times[1]) || (day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime))"
+        >
+          |
+        </div>
+        <div class="grid-item" v-else></div>
+        <!-- Afternoon slot -->
+        <div class="grid-item center">
+          <template v-if="day.times.length > 1 && day.times[1]">
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].startTime}`)) }}
+            <span> - </span>
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[1].endTime}`)) }}
+          </template>
+          <template v-else-if="day.times.length === 1 && day.times[0] && isAfternoon(day.times[0].startTime)">
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].startTime}`)) }}
+            <span> - </span>
+            {{ toLocaleTime(new Date(`2025-08-12T${day.times[0].endTime}`)) }}
+          </template>
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 

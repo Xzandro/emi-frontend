@@ -20,12 +20,13 @@
           {{ column.header }}
         </h3>
         <div class="text-content" v-if="column.contentTop" v-html="column.contentTop"></div>
-        <div v-if="column.openingHours?.length > 0" class="my-4">
+        <div v-if="column.openingHours?.length > 0" class="">
           <OpeningHours
+            class="my-4"
             v-for="hours in column.openingHours"
             :key="hours.id"
             :openingHour="hours"
-            :showOpeningHoursTitle="showOpeningHoursTitle"
+            :showOpeningHoursTitle="column.showOpeningHoursTitle"
             :prominent="$attrs.headerLocation"
           />
         </div>
