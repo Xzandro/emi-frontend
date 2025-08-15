@@ -19,6 +19,16 @@
         <h3 v-if="column.header" class="text-h3 column-content-header mb-5">
           {{ column.header }}
         </h3>
+        <div class="text-content" v-if="column.contentTop" v-html="column.contentTop"></div>
+        <div v-if="column.openingHours?.length > 0" class="my-4">
+          <OpeningHours
+            v-for="hours in column.openingHours"
+            :key="hours.id"
+            :openingHour="hours"
+            :showOpeningHoursTitle="showOpeningHoursTitle"
+            :prominent="$attrs.headerLocation"
+          />
+        </div>
         <div class="text-content" v-if="column.content" v-html="column.content"></div>
         <div v-if="column.buttons?.length > 0" class="content-buttons mt-10">
           <Button class="mr-5 mb-5" blueDark v-bind="button" v-for="button in column.buttons" :key="button.id" />

@@ -10,7 +10,7 @@
           <div v-if="block.content" v-html="block.content" class="mt-8"></div>
         </v-col>
         <v-col class="pl-md-25">
-          <Card v-if="block.card" v-bind="block.card" />
+          <Card v-if="block.card" v-bind="block.card" headerLocation />
         </v-col>
       </v-row>
     </v-container>
@@ -56,6 +56,4 @@ const props = defineProps({
     },
   },
 });
-
-const headerImageURL = computed(() => props.block.image?.url);
 </script>

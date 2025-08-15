@@ -17,7 +17,17 @@
       <template v-if="$slots.default">
         <slot></slot>
       </template>
-      <div v-else-if="$attrs.content" v-html="$attrs.content" class="mt-4"></div>
+      <div v-if="$attrs.contentTop" v-html="$attrs.contentTop" class="mt-4"></div>
+      <div v-if="openingHours?.length > 0" class="mt-4">
+        <OpeningHours
+          v-for="hours in openingHours"
+          :key="hours.id"
+          :openingHour="hours"
+          :showOpeningHoursTitle="showOpeningHoursTitle"
+          :prominent="$attrs.headerLocation"
+        />
+      </div>
+      <div v-if="$attrs.content" v-html="$attrs.content" class="mt-4"></div>
     </v-card-text>
     <v-card-text v-if="$attrs.button" class="px-6 pt-0 pb-6">
       <Button v-if="$attrs.button" v-bind="$attrs.button" block />
@@ -59,6 +69,11 @@ const props = defineProps({
   subheader: null,
   description: null,
   background: null,
+  showOpeningHoursTitle: null,
+  openingHours: {
+    type: Array,
+    default: () => [],
+  },
   blurred: {
     type: Boolean,
     default: false,
