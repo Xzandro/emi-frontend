@@ -14,7 +14,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <div class="header-overlay"></div>
+    <div class="header-overlay" :class="{ mobile }"></div>
   </div>
 </template>
 
@@ -38,6 +38,10 @@
   width: 100%;
   height: 100%;
   background-color: #ffffff;
+  &.mobile {
+    background-color: rgba(255, 255, 255, 0.8);
+    clip-path: polygon(100% 65%, 0% 100%, 100% 100%);
+  }
 }
 
 :deep(p) {
@@ -56,4 +60,6 @@ const props = defineProps({
     },
   },
 });
+
+const { mobile } = useDisplay();
 </script>
