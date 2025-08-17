@@ -33,13 +33,12 @@
 .header-overlay {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
   clip-path: polygon(100% 45%, 0% 100%, 100% 100%);
   width: 100%;
   height: 100%;
   background-color: #ffffff;
   &.mobile {
-    background-color: rgba(255, 255, 255, 0.8);
     clip-path: polygon(100% 65%, 0% 100%, 100% 100%);
   }
 }

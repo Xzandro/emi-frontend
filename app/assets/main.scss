@@ -109,3 +109,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+a {
+  color: $colors-primary;
+  transition: $transition-ease-out;
+
+  &:hover {
+    color: rgba($colors-primary, 0.6);
+  }
+}
