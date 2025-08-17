@@ -1,10 +1,10 @@
 <template>
   <v-footer class="py-10" v-bind="$attrs">
     <v-container class="constrained content-wrapper">
-      <div class="d-flex align-center justify-space-between h-100">
+      <div class="d-flex align-center justify-space-between h-100 flex-wrap">
         <img src="/logo-neg.svg" alt="Footer Logo" height="70" />
-        <div class="footer-navigation">
-          <NuxtLink class="ml-6" v-for="item in data" :key="item.documentId" :to="item.path">{{ item.title }}</NuxtLink>
+        <div class="footer-navigation mt-5 mt-md-0">
+          <NuxtLink class="ml-0 ml-md-6 mr-6 mr-md-0" v-for="item in data" :key="item.documentId" :to="item.path">{{ item.title }}</NuxtLink>
         </div>
       </div>
     </v-container>

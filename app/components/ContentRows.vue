@@ -16,7 +16,7 @@
         <div class="mb-8" v-if="column.card">
           <CardBase v-bind="column.card" />
         </div>
-        <h3 v-if="column.header" class="text-h3 column-content-header mb-5">
+        <h3 v-if="column.header" class="text-h3 column-content-header mb-2 mb-md-5">
           {{ column.header }}
         </h3>
         <div class="text-content" v-if="column.contentTop" v-html="column.contentTop"></div>
