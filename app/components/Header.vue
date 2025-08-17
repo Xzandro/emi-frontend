@@ -29,7 +29,8 @@
   &.mobile {
     padding: 40px 0;
     .text-h1 {
-      font-size: 2rem !important;
+      font-size: 2.5rem !important;
+      line-height: 46px;
     }
   }
 }
