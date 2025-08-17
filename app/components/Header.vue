@@ -1,7 +1,7 @@
 <template>
-  <div class="container-wrap">
+  <div class="container-wrap" :class="{ mobile }">
     <v-container class="constrained">
-      <v-row class="pt-8 pb-16">
+      <v-row class="pt-0 pt-md-8 pb-4 pb-md-16">
         <v-col cols="12" md="6">
           <h1 class="text-h1">
             {{ block.header }}
@@ -26,6 +26,12 @@
   position: relative;
   color: #ffffff;
   padding: 80px 0;
+  &.mobile {
+    padding: 40px 0;
+    .text-h1 {
+      font-size: 2rem !important;
+    }
+  }
 }
 .v-container {
   padding-bottom: 100px;
