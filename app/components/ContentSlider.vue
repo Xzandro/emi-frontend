@@ -66,13 +66,13 @@ img {
 }
 :deep(.carousel__prev) {
   position: absolute;
-  right: 72px;
+  right: 76px;
   left: auto;
   top: -40px;
 }
 :deep(.carousel__next) {
   position: absolute;
-  right: 0px;
+  right: 4px;
   left: auto;
   top: -40px;
 }
