@@ -28,5 +28,6 @@ const blocks = pageData.value.data[0].blocks;
 
 useSeoMeta({
   title: pageStructure?.title,
+  description: pageStructure?.description,
 });
 </script>
