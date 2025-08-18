@@ -1,14 +1,14 @@
 <template>
   <div class="container-wrap" :class="[gap]">
-    <div class="carousel-wrapper">
+    <div class="carousel-wrapper" :class="{ mobile }">
       <Carousel v-bind="carouselConfig">
         <Slide v-for="item in block.items" :key="item.id">
           <div class="carousel__item h-100 w-100 px-1">
             <v-container class="constrained">
               <v-row>
-                <v-col cols="12" md="6" class="pa-10 d-flex flex-column justify-center">
+                <v-col cols="12" md="6" class="pa-6 pa-md-10 d-flex flex-column justify-center">
                   <Headline :block="{ text: item.headline }" classes="mb-0" />
-                  <div v-if="item.content" v-html="item.content" class="mt-8"></div>
+                  <div v-if="item.content" v-html="item.content" class="mt-5 mt-md-8"></div>
                   <Button v-for="button in item.buttons" :key="button.id" v-bind="button" class="mt-8 mr-2" />
                 </v-col>
                 <v-col order="12" cols="12" md="6" class="pa-0">
@@ -81,6 +81,13 @@ img {
   color: $colors-primary;
   border-radius: $menu-content-border-radius;
 }
+.mobile {
+  .text-h2 {
+    font-size: 2rem !important;
+    letter-spacing: -0.0083333333em !important;
+    line-height: 36px;
+  }
+}
 </style>
 <style></style>
 
@@ -105,4 +112,5 @@ const carouselConfig = computed(() => ({
 }));
 
 const gap = useGap(props.block);
+const { mobile } = useDisplay();
 </script>

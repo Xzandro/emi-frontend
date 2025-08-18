@@ -7,6 +7,7 @@
             <v-card-text>
               <v-row>
                 <v-col cols="12">
+                  <Headline :block="{ text: block.headline }" v-if="block.headline" />
                   <div v-if="block.content" v-html="block.content" />
                   <Form class="mt-5" :form="block.form" />
                 </v-col>
