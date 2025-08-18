@@ -9,7 +9,7 @@
       <v-img v-if="getImageURL(image)" :src="getImageURL(image)" cover aspect-ratio="1" />
     </div>
 
-    <v-card-text class="pa-7">
+    <v-card-text class="px-4 px-md-7 py-7">
       <h3 v-if="header" class="text-h3" v-text="header"></h3>
       <div v-if="subheader">
         {{ subheader }}

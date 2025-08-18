@@ -3,7 +3,7 @@
     <p v-if="showOpeningHoursTitle">
       <strong>{{ openingHour.name }}</strong>
     </p>
-    <div class="opening-grid" :class="{ prominent }">
+    <div class="opening-grid" :class="{ prominent, mobile }">
       <template v-for="day in openingHour.days" :key="day.id">
         <div class="grid-item">{{ day.day }}:</div>
         <!-- Morning slot -->
@@ -58,6 +58,10 @@ span {
     font-weight: 500;
     row-gap: 4px;
   }
+  &.mobile {
+    grid-template-columns: 1fr 1.5fr auto 1.5fr;
+    column-gap: 2px;
+  }
 }
 .grid-item.center {
   justify-self: center;
@@ -79,7 +83,10 @@ const props = defineProps({
     default: false,
   },
 });
+
 const isAfternoon = (time) => {
   return new Date(`2025-08-12T${time}`).getHours() >= 12;
 };
+
+const { mobile } = useDisplay();
 </script>
