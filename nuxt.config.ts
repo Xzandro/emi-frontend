@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s | unsere-hausarztpraxis.de',
+      titleTemplate: '%s',
       title: 'emi-frontend',
       htmlAttrs: {
         lang: 'de',

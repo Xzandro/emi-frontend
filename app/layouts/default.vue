@@ -7,6 +7,7 @@
         <Menu />
         <slot />
       </v-layout>
+      <BottomNavigation />
     </v-app>
   </Html>
 </template>
