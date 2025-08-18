@@ -1,5 +1,11 @@
 @use '@/assets/globals.scss' as *;
 
+:root {
+  --toastify-color-success: #{$colors-success} !important;
+  --toastify-color-error: #{$colors-error} !important;
+  --toastify-toast-width: auto !important;
+}
+
 
 .v-container.constrained {
   max-width: $grid-size;
@@ -116,5 +122,33 @@ a {
 
   &:hover {
     color: rgba($colors-primary, 0.6);
+  }
+}
+
+.Toastify__toast-container {
+  max-width: 800px;
+}
+
+.toast.Toastify__toast {
+  padding: 15px 25px;
+  margin: 12px;
+  font-family: $body-font-family;
+  font-weight: 500;
+  font-size: 15px;
+  color: $colors-font !important;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+
+  .Toastify__toast-icon {
+    width: 30px;
+  }
+
+  &.Toastify__toast--success {
+    border-color: $colors-success !important;
+  }
+
+  &.Toastify__toast--error {
+    border-color: $colors-error !important;
   }
 }

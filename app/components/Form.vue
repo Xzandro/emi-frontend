@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp();
+const { $toast } = useNuxtApp();
 
 const client = useStrapiClient();
 
@@ -35,7 +35,6 @@ const loading = ref(false);
 
 const send = async () => {
   const formValidation = await formRef.value.validate();
-  console.log(formValidation.valid);
   if (formValidation.valid) {
     loading.value = true;
     const formSendData = { ...formData, id: props.form.documentId };
@@ -45,11 +44,13 @@ const send = async () => {
         method: 'POST',
         body: formSendData,
       });
-      // nuxtApp.$toast.success(t('FORM_SENT_SUCCESS'));
+
+      $toast.success('Vielen Dank! Ihre Angaben sind bei uns eingegangen.');
       formRef.value.reset();
       loading.value = false;
     } catch (error) {
-      // nuxtApp.$toast.error(error.response?.data?.error?.message);
+      console.log(error);
+      $toast.error(error.response?.data?.error?.message);
       loading.value = false;
     }
   }
