@@ -31,5 +31,4 @@ const { data, error } = await useAsyncData(
     lazy: true,
   }
 );
-console.log(data.value, error.value);
 </script>
