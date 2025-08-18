@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="py-10" v-bind="$attrs">
+  <v-footer class="pt-10 pb-md-10" v-bind="$attrs" :class="{ mobile }">
     <v-container class="constrained content-wrapper">
       <div class="d-flex align-center justify-space-between h-100 flex-wrap">
         <img src="/logo-neg.svg" alt="Footer Logo" height="70" />
@@ -20,6 +20,9 @@
   background-repeat: no-repeat;
   background-position: top left;
   color: #ffffff;
+  &.mobile {
+    padding-bottom: 90px;
+  }
 }
 a {
   font-weight: 700;
@@ -48,4 +51,6 @@ const { data, error } = await useAsyncData(
     lazy: true,
   }
 );
+
+const { mobile } = useDisplay();
 </script>

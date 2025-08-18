@@ -6,7 +6,7 @@
     :class="[blurred ? 'blurred' : null, background ? `background-${background}` : null]"
   >
     <div class="card-head" :class="{ 'no-image': !getImageURL(image) }">
-      <v-img v-if="getImageURL(image)" :src="getImageURL(image)" cover aspect-ratio="1" />
+      <Image v-if="getImageURL(image)" cover aspect-ratio="1" :image="image" />
     </div>
 
     <v-card-text class="px-4 px-md-7 py-7">

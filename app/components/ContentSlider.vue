@@ -12,7 +12,7 @@
                   <Button v-for="button in item.buttons" :key="button.id" v-bind="button" class="mt-8 mr-2" />
                 </v-col>
                 <v-col order="12" cols="12" md="6" class="pa-0">
-                  <img :src="getImageURL(item.image)" cover />
+                  <Image :image="item.image" cover native />
                 </v-col>
               </v-row>
             </v-container>

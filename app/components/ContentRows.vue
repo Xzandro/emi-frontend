@@ -12,7 +12,7 @@
         <template v-if="rowIndex === headlineInjectArea.row && index === headlineInjectArea.column && headline">
           <Headline :block="{ text: headline }" />
         </template>
-        <v-img class="mb-8 content-image" v-if="getImageURL(column.image)" :src="getImageURL(column.image)" />
+        <Image v-if="getImageURL(column.image)" :image="column.image" />
         <div class="mb-8" v-if="column.card">
           <CardBase v-bind="column.card" />
         </div>
