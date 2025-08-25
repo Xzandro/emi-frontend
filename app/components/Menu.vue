@@ -2,11 +2,11 @@
   <div>
     <v-app-bar
       v-scroll="onScroll"
-      :height="isMobile || scrolled ? 110 : 160"
+      :height="isMobile || scrolled ? mobileHeight : 160"
       :class="{ 'is-mobile': isMobile, scrolled }"
       flat
       :order="1"
-      :scroll-behavior="isMobile ? 'elevate hide' : null"
+      :scroll-behavior="isMobile ? 'elevate' : null"
       :scroll-threshold="300"
     >
       <div class="container-wrap">
@@ -17,7 +17,7 @@
                 <v-img
                   class="main-logo"
                   :class="{ 'is-mobile': isMobile }"
-                  :width="isMobile || scrolled ? 220 : 400"
+                  :width="isMobile || scrolled ? 180 : 400"
                   contain
                   src="/logo-full.svg"
                   alt="Main logo"
@@ -89,6 +89,11 @@
 .v-app-bar {
   background-color: #ffffff !important;
   z-index: 5 !important;
+  &.is-mobile {
+    .v-col {
+      height: 70px !important;
+    }
+  }
 }
 .v-app-bar.is-mobile,
 .v-app-bar.scrolled {
@@ -198,6 +203,8 @@ const { items, drawer } = storeToRefs(menuStore);
 
 const threshold = 0;
 const scrolled = ref(false);
+
+const mobileHeight = ref(70);
 
 const isParentActive = (menuItem) => route.path.includes(menuItem.path);
 const toggleDrawer = () => {
