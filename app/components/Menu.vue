@@ -2,7 +2,7 @@
   <div>
     <v-app-bar
       v-scroll="onScroll"
-      :height="isMobile || scrolled ? mobileHeight : 160"
+      :height="menuHeight"
       :class="{ 'is-mobile': isMobile, scrolled }"
       flat
       :order="1"
@@ -14,14 +14,7 @@
           <v-row>
             <v-col class="d-flex justify-center align-center">
               <NuxtLink to="/">
-                <v-img
-                  class="main-logo"
-                  :class="{ 'is-mobile': isMobile }"
-                  :width="isMobile || scrolled ? 180 : 400"
-                  contain
-                  src="/logo-full.svg"
-                  alt="Main logo"
-                />
+                <v-img class="main-logo" :class="{ 'is-mobile': isMobile }" :width="logoWidth" contain src="/logo-full.svg" alt="Main logo" />
               </NuxtLink>
               <v-spacer />
               <v-app-bar-nav-icon :color="colors.primary" v-if="isMobile" @click.stop="toggleDrawer" />
@@ -98,6 +91,7 @@
 .v-app-bar.is-mobile,
 .v-app-bar.scrolled {
   position: fixed !important;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
 }
 :deep(.v-app-bar .v-toolbar__content) {
   flex-wrap: wrap;
@@ -204,7 +198,23 @@ const { items, drawer } = storeToRefs(menuStore);
 const threshold = 0;
 const scrolled = ref(false);
 
-const mobileHeight = ref(70);
+const menuHeight = computed(() => {
+  if (isMobile.value) {
+    return 70;
+  } else if (scrolled.value) {
+    return 110;
+  }
+  return 160;
+});
+
+const logoWidth = computed(() => {
+  if (isMobile.value) {
+    return 180;
+  } else if (scrolled.value) {
+    return 220;
+  }
+  return 400;
+});
 
 const isParentActive = (menuItem) => route.path.includes(menuItem.path);
 const toggleDrawer = () => {
