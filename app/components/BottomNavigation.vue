@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation app height="54" :active="mobile && data.length > 0" grow :color="colors.primary" bg-color="white">
+  <v-bottom-navigation app height="58" :active="mobile && data.length > 0" grow :color="colors.primary" bg-color="white">
     <v-btn v-for="item in data" :key="item.documentId" :to="item.path">
       <v-icon v-if="item.related?.menuIcon" :size="iconSize" :color="colors.primary" class="mb-1">{{ item.related.menuIcon }}</v-icon>
       <span>{{ item.title }}</span>
