@@ -14,7 +14,14 @@
           <v-row>
             <v-col class="d-flex justify-center align-center">
               <NuxtLink to="/">
-                <v-img class="main-logo" :class="{ 'is-mobile': isMobile }" :width="logoWidth" contain src="/logo-full.svg" alt="Main logo" />
+                <v-img
+                  class="main-logo"
+                  :class="{ 'is-mobile': isMobile }"
+                  :width="logoWidth"
+                  contain
+                  :src="isMobile ? '/logo-mobile.svg' : '/logo-full.svg'"
+                  alt="Main logo"
+                />
               </NuxtLink>
               <v-spacer />
               <v-app-bar-nav-icon :color="colors.primary" v-if="isMobile" @click.stop="toggleDrawer" />
@@ -209,7 +216,7 @@ const menuHeight = computed(() => {
 
 const logoWidth = computed(() => {
   if (isMobile.value) {
-    return 180;
+    return 220;
   } else if (scrolled.value) {
     return 220;
   }
