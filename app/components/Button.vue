@@ -103,9 +103,8 @@ const iframeLoaded = ref(false);
 const dialogOpen = ref(false);
 
 const onIframeLoad = (e) => {
-  if (!iframeLoaded.value) {
-    iframeLoaded.value = true;
-  } else {
+  iframeLoaded.value = !!iframeLoaded.value;
+  if (dialogOpen.value && iframeLoaded.value) {
     dialogOpen.value = false;
     iframeLoaded.value = false;
   }
