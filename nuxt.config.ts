@@ -58,6 +58,9 @@ export default defineNuxtConfig({
       strapi: {
         url: process.env.STRAPI_URL || 'http://localhost:1337',
       },
+      medatixx: {
+        configid: process.env.MEDATIXX_CONFIGID || '8a0b8934-b955-43f6-920a-3c586794c512',
+      },
     },
   },
 
