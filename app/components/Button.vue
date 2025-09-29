@@ -4,7 +4,7 @@
       <v-icon v-if="icon && (!iconSide || iconSide === 'left')" :class="[circle ? null : 'mr-2', iconClass]">{{ icon }}</v-icon>
       {{ text }}
       <v-icon v-if="icon && iconSide === 'right'" :class="iconClass">{{ icon }}</v-icon>
-      <v-dialog activator="parent" max-width="900" height="100%" v-model="dialogOpen">
+      <v-dialog activator="parent" max-width="900" height="100%" v-model="dialogOpen" @update:modelValue="onDialogChange">
         <template v-slot:default>
           <v-card>
             <v-card-title class="text-h2 py-10 px-8"> Termin vereinbaren </v-card-title>
@@ -103,13 +103,21 @@ const iframeLoaded = ref(false);
 const dialogOpen = ref(false);
 
 const onIframeLoad = (e) => {
-  iframeLoaded.value = !!iframeLoaded.value;
+  if (dialogOpen.value && !iframeLoaded.value) {
+    iframeLoaded.value = true;
+    return;
+  }
   if (dialogOpen.value && iframeLoaded.value) {
     dialogOpen.value = false;
     iframeLoaded.value = false;
   }
 };
 
+const onDialogChange = (val) => {
+  if (!val) {
+    iframeLoaded.value = false;
+  }
+};
 onUnmounted(() => {
   iframeLoaded.value = false;
   dialogOpen.value = false;
