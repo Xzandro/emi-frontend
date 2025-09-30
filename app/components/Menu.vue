@@ -72,7 +72,7 @@
                 </div>
                 <span class="phone">
                   <v-icon class="mr-2">mdi-phone-in-talk</v-icon>
-                  Bald erreichbar
+                  03771 / 7193300
                 </span>
               </div>
             </v-col>
